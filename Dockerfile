@@ -25,7 +25,7 @@ CMD ["/sbin/my_init"]
 
 ## update apt and install stuff
 RUN apt-get update
-RUN apt-get install -y expect wget iproute2
+RUN apt-get install -y expect wget iproute2 runit
 
 # Get the teamcity package and extract it.
 RUN wget -q -O - $MAILARCHIVA_BASE_URL | tar xzf - -C $MAILARCHIVA_INSTALL_DIR
