@@ -23,12 +23,9 @@ ENV MAILARCHIVA_DATA_PATH /opt/mailarchiva-data
 # this is based on ubuntu:rolling
 CMD ["/sbin/my_init"]
 
-RUN printenv PATH
-RUN which ss
-
 ## update apt and install stuff
 RUN apt-get update
-RUN apt-get install -y expect wget
+RUN apt-get install -y expect wget ss
 
 # Get the teamcity package and extract it.
 RUN wget -q -O - $MAILARCHIVA_BASE_URL | tar xzf - -C $MAILARCHIVA_INSTALL_DIR
