@@ -51,11 +51,16 @@ sleep 1
 #expect -exact "SOFTWARE LICENCE"
 #Hit space to scroll through agreement
 #send -- "  "
-expect -exact "Do you agree to the terms of the agreement (yes/no)?"
+
+sleep 2
+
+expect -exact "(yes/no)?"
 send -- "yes\r"
 
+sleep 2
+
 #Set heap size
-expect -re "Max heap size \[2048m-[0-9]+m\]\?:"
+expect -re "Max heap size \[2048m-....m\]\?:"
 send --  "$::env(MAILARCHIVA_HEAP_SIZE)\r"
 
 expect eof
