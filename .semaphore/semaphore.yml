@@ -13,3 +13,14 @@ blocks:
           commands:
             - checkout
             - docker build -t your-image .
+  - name: 'Block #2'
+    dependencies:
+      - 'Block #1'
+    task:
+      secrets:
+        - name: DockerHub credentials
+      jobs:
+        - name: docker push
+          commands:
+            - docker login
+            - docker push latest
