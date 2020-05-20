@@ -4,7 +4,8 @@
 # @todo: build this with: docker build -t mailarchiva .
 ####################################
 
-FROM ubuntu:rolling
+#FROM ubuntu:rolling
+FROM phusion/baseimage:latest-amd64
 
 # Regenerate SSH host keys. baseimage-docker does not contain any, so you
 # have to do that yourself. You may also comment out this instruction; the
@@ -49,5 +50,5 @@ EXPOSE 8091
 
 VOLUME ["/opt/mailarchiva/ROOT"]
 
-# RUN apt-get remove -yf expect... leave this hear for easy updates? 
+# RUN apt-get remove -yf expect... leave this for easy updates? 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
