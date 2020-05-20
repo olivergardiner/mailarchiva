@@ -55,7 +55,7 @@ expect -exact "Do you agree to the terms of the agreement (yes/no)?"
 send -- "yes\r"
 
 #Set heap size
-expect -re "Max heap size \[2048m-....m\]?:"
+expect -re "Max heap size \[2048m-[0-9]+m\]\?:"
 send --  "$::env(MAILARCHIVA_HEAP_SIZE)\r"
 
 expect eof
