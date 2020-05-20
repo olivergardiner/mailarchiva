@@ -51,7 +51,7 @@ sleep 1
 expect -exact "SOFTWARE LICENCE"
 #Hit space to scroll through agreement
 send -- "  "
-expect -exact "Do you agree to the terms of the agreement"
+expect -exact "Do you agree to the terms of the agreement (yes/no)?"
 send -- "yes\r"
 expect -exact "Max heap size \[2048m-3506m\]?:"
 send --  "$::env(MAILARCHIVA_HEAP_SIZE)\r"
