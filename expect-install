@@ -60,7 +60,7 @@ send -- "yes\r"
 sleep 2
 
 #Set heap size
-expect -re "Max heap size \[2048m-....m\]\?:"
+expect -exact "m]?:"
 send --  "$::env(MAILARCHIVA_HEAP_SIZE)\r"
 
 expect eof
