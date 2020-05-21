@@ -8,20 +8,13 @@ blocks:
   - name: 'Block #1'
     dependencies: []
     task:
+      secrets:
+        - name: DockerHub credentials
       jobs:
         - name: docker build
           commands:
             - checkout
             - docker build -t mailarchiva .
-  - name: 'Block #2'
-    dependencies:
-      - 'Block #1'
-    task:
-      secrets:
-        - name: DockerHub credentials
-      jobs:
-        - name: docker push
-          commands:
             - echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
             - docker tag mailarchiva:latest "$DOCKER_USERNAME"/mailarchiva:latest
             - docker push "$DOCKER_USERNAME"/mailarchiva:latest
