@@ -23,4 +23,7 @@ blocks:
         - name: docker push
           commands:
             - echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
-            - docker push olivergardiner/mailarchiva:latest
+            - docker tag mailarchiva:latest "$DOCKER_USERNAME"/mailarchiva:latest
+            - docker push "$DOCKER_USERNAME"/mailarchiva:latest
+            - docker pull "$DOCKER_USERNAME"/mailarchiva:latest
+            - docker images
