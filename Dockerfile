@@ -48,7 +48,9 @@ EXPOSE 8091
 #milter - I don't think this is needed.
 #EXPOSE 8092
 
-VOLUME ["/opt/mailarchiva/ROOT"]
+RUN mkdir ${MAILARCHIVA_DATA_PATH}
+
+VOLUME ${MAILARCHIVA_DATA_PATH}
 
 # RUN apt-get remove -yf expect... leave this for easy updates? 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
