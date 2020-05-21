@@ -12,8 +12,8 @@ FROM phusion/baseimage:latest-amd64
 # init system will auto-generate one during boot.
 # RUN /etc/my_init.d/00_regen_ssh_host_keys.sh
 
-#20200517: Link to V 7.12.0 Linux
-ENV MAILARCHIVA_BASE_URL https://mailarchiva.com/download?id=2354          
+#20200521 Link to V 7.12.4 Linux
+ENV MAILARCHIVA_BASE_URL https://mailarchiva.com/download?id=2370        
 ENV MAILARCHIVA_INSTALL_DIR /opt
 ENV MAILARCHIVA_HEAP_SIZE 2048m
 
